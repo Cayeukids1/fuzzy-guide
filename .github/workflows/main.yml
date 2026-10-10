@@ -3,6 +3,9 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cajamod-template-26.3
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -14,4 +17,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: cajamod-jar
-          path: build/libs/*.jar
+          path: cajamod-template-26.3/build/libs/*.jar
