@@ -2,7 +2,7 @@ package com.caja;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
@@ -64,7 +64,7 @@ public class CajaMod implements ModInitializer {
         // Atributos base del clon (vida, velocidad, salto, tamaño)
         FabricDefaultAttributeRegistry.register(CLON, ClonEntity.createAttributes());
         // La Caja aparece en la pestaña creativa "Bloques funcionales"
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(e -> e.accept(CAJA_ITEM));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(output -> output.accept(CAJA_ITEM));
         // Comandos /clon ...
         CommandRegistrationCallback.EVENT.register((dispatcher, ctx, env) -> ClonCommands.register(dispatcher));
     }
