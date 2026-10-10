@@ -1,6 +1,5 @@
 package com.caja;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -28,17 +27,11 @@ import org.jspecify.annotations.Nullable;
  * - Al tercer click se destruye, suelta partículas y aparece el Clon.
  */
 public class CajaBlock extends Block implements EntityBlock {
-    public static final MapCodec<CajaBlock> CODEC = simpleCodec(CajaBlock::new);
     public static final IntegerProperty CLICKS = IntegerProperty.create("clicks", 0, 2);
 
     public CajaBlock(Properties properties) {
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(CLICKS, 0));
-    }
-
-    @Override
-    protected MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override
