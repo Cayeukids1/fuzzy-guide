@@ -1,0 +1,5 @@
+{ "variants": {
+  "clicks=0": { "model": "cajamod:block/caja" },
+  "clicks=1": { "model": "cajamod:block/caja" },
+  "clicks=2": { "model": "cajamod:block/caja" }
+} }
